@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold, color: Colors.blue))
                 .paddingOnly(right: 12))
       ],
-      appBarTitle: 'Money Pay',
+      appBarTitle: AppStrings.moneyPay,
       body: Column(
         children: [
           BalanceCard(homeController: controller, balance: 500000)

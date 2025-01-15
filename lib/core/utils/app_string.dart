@@ -8,4 +8,10 @@ class AppStrings {
   static const String sendMoney = "Send Money";
   static const String withdraw = "Withdraw";
   static const String transactions = "Transactions";
+  static const String moneyPay = "Money Pay";
+  static const String paying = "Paying Rajendra";
+  static const String bankingName = "Banking name: ";
+  static const String name = "Rajendra Bisht";
+  static const String mobile = "+91 7409484009";
+  static const String payNow = "Pay Now";
 }

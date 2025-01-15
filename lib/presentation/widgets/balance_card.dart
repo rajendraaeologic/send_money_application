@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:send_money_application1/core/routes/app_routes.dart';
 import 'package:send_money_application1/core/utils/app_string.dart';
 import 'package:send_money_application1/presentation/widgets/icon_action_button.dart';
 
@@ -80,7 +81,7 @@ class BalanceCard extends StatelessWidget {
                   icon: Icons.arrow_upward_rounded,
                   label: AppStrings.sendMoney,
                   onTap: () {
-
+                      Get.toNamed(AppRoutes.sendMoney);
                   }),
               IconActionButton(
                   icon: Icons.arrow_downward_rounded,
