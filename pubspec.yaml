@@ -33,7 +33,7 @@ dependencies:
   get: ^4.6.6        # State management and navigation
   intl: ^0.20.1
   http: ^1.2.2
-
+  get_it: ^8.0.3
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8

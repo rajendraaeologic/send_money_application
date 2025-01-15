@@ -51,7 +51,7 @@ class AppRoutes {
         Get.lazyPut<GetTransactionsUseCase>(
             () => GetTransactionsUseCase(Get.find<TransactionRepository>()));
         Get.lazyPut<TransactionsController>(
-            () => TransactionsController(Get.find<GetTransactionsUseCase>()));
+            () => TransactionsController(Get.find()));
       }),
     ),
   ];
