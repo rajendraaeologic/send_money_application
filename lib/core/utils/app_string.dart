@@ -14,4 +14,8 @@ class AppStrings {
   static const String name = "Rajendra Bisht";
   static const String mobile = "+91 7409484009";
   static const String payNow = "Pay Now";
+  static const String successTile = "Payment Successful!";
+  static const String successText = "Your payment has been successfully processed.";
+  static const String close = "Close";
+  static const String share = "Share";
 }
