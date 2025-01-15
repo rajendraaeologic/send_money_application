@@ -4,4 +4,5 @@ class AppStrings {
   static const String passwordLabel = "Password";
   static const String loginButton = "Login";
   static const String logout = "Logout";
+  static const String currentBalance = "Current Balance";
 }
