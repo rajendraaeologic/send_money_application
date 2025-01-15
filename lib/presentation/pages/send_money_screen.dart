@@ -9,7 +9,6 @@ import '../controllers/send_money_controller.dart';
 
 class SendMoneyScreen extends StatelessWidget {
   final SendMoneyController controller = Get.find<SendMoneyController>();
-  final TextEditingController amountController = TextEditingController();
 
   SendMoneyScreen({super.key});
 
@@ -45,11 +44,11 @@ class SendMoneyScreen extends StatelessWidget {
              SizedBox(
               width: 180,
               child: TextField(
-                controller: amountController,
+                controller: controller.amountController,
                 style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 maxLength: 6,
                 decoration: InputDecoration(
-                  errorText: amountController.text.isEmpty ? 'Please enter an amount' : null, // Error handling
+                  errorText: controller.amountController.text.isEmpty ? 'Please enter an amount' : null, // Error handling
                   hintText: '0',
                   floatingLabelAlignment: FloatingLabelAlignment.center,
                   prefixIcon: const Icon(Icons.currency_rupee),
@@ -71,7 +70,7 @@ class SendMoneyScreen extends StatelessWidget {
                   backgroundColor: Colors.blue, // Set the button color to blue
                 ),
                 onPressed: () {
-                  if(amountController.text.isNotEmpty) {
+                  if(controller.amountController.text.isNotEmpty) {
 
                     showPaymentSuccessSheet();
                   }

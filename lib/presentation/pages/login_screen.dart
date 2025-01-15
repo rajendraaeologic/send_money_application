@@ -7,8 +7,6 @@ import '../../core/utils/base_widget.dart';
 import '../controllers/login_controller.dart';
 
 class LoginScreen extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   final LoginController controller = Get.find<LoginController>();
 
   LoginScreen({super.key});
@@ -22,7 +20,7 @@ class LoginScreen extends StatelessWidget {
           children: [
             const Text(AppStrings.loginButton, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             TextField(
-              controller: emailController,
+              controller: controller.emailController,
               keyboardType: TextInputType.text,
               maxLength: 10,
               decoration: const InputDecoration(labelText: AppStrings.emailLabel),
@@ -30,7 +28,7 @@ class LoginScreen extends StatelessWidget {
             Obx(
                   () {
                 return TextField(
-                  controller: passwordController,
+                  controller: controller.passwordController,
                   keyboardType: TextInputType.visiblePassword,
                   maxLength: 15,
                   obscureText: !controller.isPasswordVisible.value, // Use controller to toggle visibility
@@ -54,7 +52,11 @@ class LoginScreen extends StatelessWidget {
                 elevation: 0,
               ),
               onPressed: () {
-                Get.toNamed(AppRoutes.home);
+                if(controller.emailController.text.isNotEmpty && controller.passwordController.text.isNotEmpty) {
+                  Get.toNamed(AppRoutes.home);
+                } else {
+                  Get.snackbar('User name & password cannot be empty!', 'Enter a valid username or password.', snackPosition: SnackPosition.BOTTOM);
+                }
               },
               child: const Text(AppStrings.loginButton, style: TextStyle(color: Colors.white)),
             ),

@@ -9,7 +9,7 @@ class AppStrings {
   static const String withdraw = "Withdraw";
   static const String transactions = "Transactions";
   static const String transactionHistory = "Transactions History";
-  static const String moneyPay = "Money Pay";
+  static const String moneyPay = "Money Pay App";
   static const String paying = "Paying Rajendra";
   static const String bankingName = "Banking name: ";
   static const String name = "Rajendra Bisht";
