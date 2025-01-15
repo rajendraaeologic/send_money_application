@@ -15,7 +15,7 @@ class TransactionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScaffold(
-      showBackButton: false,
+      showBackButton: true,
       actions: [
         InkWell(
             onTap: () => Get.offAllNamed(AppRoutes.login),
@@ -25,11 +25,30 @@ class TransactionsScreen extends StatelessWidget {
                 .paddingOnly(right: 12))
       ],
       appBarTitle: AppStrings.transactionHistory,
-      body: Column(
-        children: [
-
-        ],
-      ),
+      body: Obx(() {
+        if (controller.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (controller.errorMessage.isNotEmpty) {
+          return Center(
+            child: Text(
+              controller.errorMessage.value,
+              style: const TextStyle(color: Colors.red),
+            ),
+          );
+        }
+        return ListView.builder(
+          itemCount: controller.transactions.length,
+          itemBuilder: (context, index) {
+            final transaction = controller.transactions[index];
+            return ListTile(
+              leading: CircleAvatar(child: Text(transaction.id.toString())),
+              title: Text(transaction.title),
+              subtitle: Text(transaction.body),
+            );
+          },
+        );
+      }),
     );
   }
 }
