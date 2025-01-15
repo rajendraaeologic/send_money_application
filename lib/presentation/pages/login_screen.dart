@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../core/routes/app_routes.dart';
 import '../../core/utils/app_string.dart';
 import '../../core/utils/base_widget.dart';
 import '../controllers/login_controller.dart';
@@ -52,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                 elevation: 0,
               ),
               onPressed: () {
-
+                Get.toNamed(AppRoutes.home);
               },
               child: const Text(AppStrings.loginButton, style: TextStyle(color: Colors.white)),
             ),
