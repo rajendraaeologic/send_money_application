@@ -4,13 +4,14 @@ class BaseScaffold extends StatelessWidget {
   final Widget body;
   final String appBarTitle;
   final List<Widget>? actions;
+  final bool showBackButton;
 
-  // Constructor to accept the parameters
   const BaseScaffold({
     super.key,
     required this.body,
-    this.appBarTitle = '', // Default to an empty string if no title is passed
+    this.appBarTitle = '',
     this.actions,
+    this.showBackButton = false,
   });
 
   @override
@@ -18,15 +19,23 @@ class BaseScaffold extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        centerTitle: true,
         title: appBarTitle.isNotEmpty
-            ? Text(appBarTitle) // Show title only if it is not empty
+            ? Text(appBarTitle)
             : null,
-        actions: actions, // Allows customization of the app bar actions
+        leading: showBackButton
+            ? IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ) : const SizedBox(),
+        actions: actions,
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: body, // Dynamic body passed from the child widget
+          child: body,
         ),
       ),
     );
