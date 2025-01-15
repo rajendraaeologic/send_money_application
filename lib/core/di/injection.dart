@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 
-import '../../data/sources/transaction_api.dart';
 import '../../data/repositories/transaction_repository_impl.dart';
+import '../../data/sources/transaction_api.dart';
 import '../../domain/usecases/get_transactions_usecase.dart';
 import '../../presentation/controllers/transaction_controller.dart';
 
