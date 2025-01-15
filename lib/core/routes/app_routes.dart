@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:send_money_application1/core/di/injection.dart';
-import 'package:send_money_application1/data/sources/transaction_api.dart';
+import 'package:send_money_application1/data/sources/remote/transaction_api.dart';
 import 'package:send_money_application1/presentation/controllers/transaction_controller.dart';
 import 'package:send_money_application1/presentation/pages/home_screen.dart';
 import 'package:send_money_application1/presentation/pages/send_money_screen.dart';
