@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:send_money_application1/core/routes/app_routes.dart';
 import 'package:send_money_application1/core/utils/app_string.dart';
-import 'package:send_money_application1/presentation/controllers/home_controller.dart';
 import 'package:send_money_application1/presentation/controllers/transaction_controller.dart';
-import 'package:send_money_application1/presentation/widgets/balance_card.dart';
+
 import '../../core/utils/base_widget.dart';
 
 class TransactionsScreen extends StatelessWidget {

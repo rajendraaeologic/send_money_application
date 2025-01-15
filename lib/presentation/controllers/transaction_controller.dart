@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../../domain/entities/transaction.dart';
 import '../../domain/usecases/get_transactions_usecase.dart';
 
