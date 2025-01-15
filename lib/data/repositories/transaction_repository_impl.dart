@@ -12,7 +12,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
   Future<List<Transaction>> getTransactions() async {
     final transactionsData = await api.fetchTransactions();
     return transactionsData
-        .map<Transaction>((json) => TransactionModel.fromJson(json))
+        .map<Transaction>((json) => TransactionModel.fromJson(json as Map<String, dynamic>))
         .toList();
   }
 }

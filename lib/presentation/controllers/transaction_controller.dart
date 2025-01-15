@@ -18,12 +18,13 @@ class TransactionsController extends GetxController {
     fetchTransactions();
   }
 
-  void fetchTransactions() async {
+  Future<void> fetchTransactions() async {
     try {
       isLoading.value = true;
-      transactions.value = await getTransactionsUseCase.call();
+      final fetchedTransactions = await getTransactionsUseCase.call();
+      transactions.value = fetchedTransactions;
     } catch (e) {
-      errorMessage.value = e.toString();
+      errorMessage.value = e.toString().replaceFirst('Exception: ', '').trim();
     } finally {
       isLoading.value = false;
     }
