@@ -93,7 +93,7 @@ class BalanceCard extends StatelessWidget {
                   icon: Icons.double_arrow_rounded,
                   label: AppStrings.transactions,
                   onTap: () {
-
+                    Get.toNamed(AppRoutes.transactionHistory);
                   }),
             ],
           ).paddingOnly(top: 8, bottom: 8)

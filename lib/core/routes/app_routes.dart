@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
+import 'package:send_money_application1/presentation/controllers/transaction_controller.dart';
 import 'package:send_money_application1/presentation/pages/home_screen.dart';
 import 'package:send_money_application1/presentation/pages/send_money_screen.dart';
+import 'package:send_money_application1/presentation/pages/transaction_screen.dart';
 
 import '../../presentation/controllers/home_controller.dart';
 import '../../presentation/controllers/login_controller.dart';
@@ -11,6 +13,7 @@ class AppRoutes {
   static const login = '/login';
   static const home = '/home';
   static const sendMoney = '/sendMoney';
+  static const transactionHistory = '/transactionHistory';
 
   static final routes = [
     GetPage(
@@ -32,6 +35,13 @@ class AppRoutes {
       page: () => SendMoneyScreen(),
       binding: BindingsBuilder(() {
         Get.put(SendMoneyController());
+      }),
+    ),
+    GetPage(
+      name: transactionHistory,
+      page: () => TransactionsScreen(),
+      binding: BindingsBuilder(() {
+        Get.put(TransactionsController());
       }),
     ),
   ];
