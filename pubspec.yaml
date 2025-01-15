@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.6        # State management and navigation
-
+  intl: ^0.20.1
 
 
   # The following adds the Cupertino Icons font to your application.

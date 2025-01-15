@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:send_money_application1/core/utils/app_string.dart';
+import 'package:send_money_application1/presentation/widgets/icon_action_button.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -16,78 +18,84 @@ class BalanceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formattedBalance =
+        NumberFormat.decimalPattern('en_IN').format(balance);
     return Container(
-      padding: const EdgeInsets.all(16.0), // Padding around the content
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.only(top: 16.0, bottom: 8.0),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
           color: Colors.grey,
-          width: 0.5,
+          width: 0.3,
         ),
-        borderRadius: BorderRadius.circular(5), // Rounded corners with radius
+        borderRadius: BorderRadius.circular(5),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8.0), // Padding around the icon
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1,
-                  ),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: const Icon(
-                  Icons.currency_rupee_outlined,
-                  color: Colors.blue,
-                ),
-              ),
-            ],
-          ),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const Text(
+                AppStrings.currentBalance,
+                style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey),
+              ),
               Obx(() {
                 return Text(
                   homeController.isBalanceVisible.value
-                      ? balance.toStringAsFixed(0)
+                      ? '₹$formattedBalance'
                       : '******',
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 26,
                     fontWeight: FontWeight.bold,
                     color: Colors.blue,
                   ),
                 );
               }),
-              const Text(
-                AppStrings.currentBalance,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.grey
-                ),
-              ),
             ],
           ),
-          Row(children: [
-            IconButton(
-              icon: Obx(() {
-                return Icon(
-                  homeController.isBalanceVisible.value
-                      ? Icons.visibility
-                      : Icons.visibility_off,
-                  color: Colors.blue,
-                );
-              }),
-              onPressed: () {
-                homeController.toggleBalanceVisibility();
-              },
-            ),
-          ],)
+          IconButton(
+            icon: Obx(() {
+              return Icon(
+                homeController.isBalanceVisible.value
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+                color: Colors.blue,
+              );
+            }),
+            onPressed: () {
+              homeController.toggleBalanceVisibility();
+            },
+          ),
+          const Divider(thickness: 0.3),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconActionButton(
+                  icon: Icons.arrow_upward_rounded,
+                  label: AppStrings.sendMoney,
+                  onTap: () {
+
+                  }),
+              IconActionButton(
+                  icon: Icons.arrow_downward_rounded,
+                  label: AppStrings.withdraw,
+                  onTap: () {
+
+                  }),
+              IconActionButton(
+                  icon: Icons.double_arrow_rounded,
+                  label: AppStrings.transactions,
+                  onTap: () {
+
+                  }),
+            ],
+          ).paddingOnly(top: 8, bottom: 8)
         ],
       ),
     );
