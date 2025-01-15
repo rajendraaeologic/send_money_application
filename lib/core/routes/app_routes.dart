@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:send_money_application1/core/di/injection.dart';
 import 'package:send_money_application1/data/sources/transaction_api.dart';
 import 'package:send_money_application1/presentation/controllers/transaction_controller.dart';
 import 'package:send_money_application1/presentation/pages/home_screen.dart';
@@ -47,11 +48,11 @@ class AppRoutes {
       binding: BindingsBuilder(() {
         Get.lazyPut<TransactionAPI>(() => TransactionAPI());
         Get.lazyPut<TransactionRepository>(
-            () => TransactionRepositoryImpl(Get.find<TransactionAPI>()));
+            () => TransactionRepositoryImpl(locator<TransactionAPI>()));
         Get.lazyPut<GetTransactionsUseCase>(
-            () => GetTransactionsUseCase(Get.find<TransactionRepository>()));
+            () => GetTransactionsUseCase(locator<TransactionRepository>()));
         Get.lazyPut<TransactionsController>(
-            () => TransactionsController(Get.find()));
+            () => TransactionsController(locator<GetTransactionsUseCase>()));
       }),
     ),
   ];
