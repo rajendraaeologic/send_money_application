@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/utils/app_string.dart';
+import '../../core/utils/base_widget.dart';
 import '../controllers/login_controller.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -12,9 +13,9 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BaseScaffold(
       body: Container(
-        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: MediaQuery.of(context).size.height * 0.25),
+        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: MediaQuery.of(context).size.height * 0.18),
         child: Column(
           children: [
             const Text(AppStrings.loginButton, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
